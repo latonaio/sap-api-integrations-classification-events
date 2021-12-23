@@ -1,19 +1,23 @@
 {
 	"openapi": "3.0.0",
 	"info": {
-		"title": "Classification Characteristic",
+		"title": "Classification Class",
 		"version": "1.0",
-		"description": "In classification, characteristics describe the properties of business objects. The values of a characteristic specify these properties. The following events are available for classification characteristics: \n - Classification characteristic changed \n - Classification characteristic created \n - Classification characteristic released"
+		"description": "In classification, classes allow you to group objects together according to criteria that you define. \n - You can create classes for certain object types for example, material, workplace, equipment. \n - You can use the class type to determine which object types can be classified in a class. \n - You can assign characteristics to your class. \n These describe the objects that you classify in your class. \n The following events are available for classification classes: \n - Classification class changed \n - Classification class created \n - Classification class deleted"
+	},
+	"externalDocs": {
+		"description": "Business Documentation",
+		"url": "https://help.sap.com/viewer/7489fa08cede494cbdf08fa3651598af/latest/en-US/52a8284da0574822be7dd4d782065c08.html"
 	},
 	"components": {
 		"schemas": {
-			"sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Changed.v1": {
+			"sap.s4.beh.classificationclass.v1.ClassificationClass.Changed.v1": {
 				"type": "object",
 				"properties": {
 					"ChangeNumber": {
 						"type": "string"
 					},
-					"CharcInternalID": {
+					"ClassInternalID": {
 						"type": "string"
 					},
 					"ValidityStartDate": {
@@ -22,13 +26,13 @@
 					}
 				}
 			},
-			"sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Created.v1": {
+			"sap.s4.beh.classificationclass.v1.ClassificationClass.Created.v1": {
 				"type": "object",
 				"properties": {
 					"ChangeNumber": {
 						"type": "string"
 					},
-					"CharcInternalID": {
+					"ClassInternalID": {
 						"type": "string"
 					},
 					"ValidityStartDate": {
@@ -37,13 +41,13 @@
 					}
 				}
 			},
-			"sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Deleted.v1": {
+			"sap.s4.beh.classificationclass.v1.ClassificationClass.Deleted.v1": {
 				"type": "object",
 				"properties": {
 					"ChangeNumber": {
 						"type": "string"
 					},
-					"CharcInternalID": {
+					"ClassInternalID": {
 						"type": "string"
 					},
 					"ValidityStartDate": {
@@ -101,14 +105,14 @@
 		}
 	},
 	"paths": {
-		"/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Changed.v1": {
+		"/sap.s4.beh.classificationclass.v1.ClassificationClass.Changed.v1": {
 			"post": {
 				"tags": [
 					"Changed"
 				],
 				"x-payload": "",
-				"description": "This event is raised when a classification characteristic is changed.",
-				"summary": "Classification Characteristic Changed",
+				"description": "This event is raised when a Classification Class is changed.",
+				"summary": "Classification Class Changed",
 				"requestBody": {
 					"content": {
 						"application/json": {
@@ -123,7 +127,7 @@
 										"properties": {
 											"data": {
 												"description": "Data Fields",
-												"$ref": "#/components/schemas/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Changed.v1"
+												"$ref": "#/components/schemas/sap.s4.beh.classificationclass.v1.ClassificationClass.Changed.v1"
 											}
 										}
 									}
@@ -139,14 +143,14 @@
 				}
 			}
 		},
-		"/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Created.v1": {
+		"/sap.s4.beh.classificationclass.v1.ClassificationClass.Created.v1": {
 			"post": {
 				"tags": [
 					"Created"
 				],
 				"x-payload": "",
-				"description": "This event is raised when a classification characteristic is created.",
-				"summary": "Classification Characteristic Created",
+				"description": "This event is raised when a Classification Class is created.",
+				"summary": "Classification Class Created",
 				"requestBody": {
 					"content": {
 						"application/json": {
@@ -161,7 +165,7 @@
 										"properties": {
 											"data": {
 												"description": "Data Fields",
-												"$ref": "#/components/schemas/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Created.v1"
+												"$ref": "#/components/schemas/sap.s4.beh.classificationclass.v1.ClassificationClass.Created.v1"
 											}
 										}
 									}
@@ -177,14 +181,14 @@
 				}
 			}
 		},
-		"/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Deleted.v1": {
+		"/sap.s4.beh.classificationclass.v1.ClassificationClass.Deleted.v1": {
 			"post": {
 				"tags": [
 					"Deleted"
 				],
 				"x-payload": "",
-				"description": "This event is raised when a classification characteristic is deleted.",
-				"summary": "Classification Characteristic Deleted",
+				"description": "This event is raised when a Classification Class is deleted.",
+				"summary": "Classification Class Deleted",
 				"requestBody": {
 					"content": {
 						"application/json": {
@@ -199,7 +203,7 @@
 										"properties": {
 											"data": {
 												"description": "Data Fields",
-												"$ref": "#/components/schemas/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Deleted.v1"
+												"$ref": "#/components/schemas/sap.s4.beh.classificationclass.v1.ClassificationClass.Deleted.v1"
 											}
 										}
 									}
