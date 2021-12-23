@@ -1,0 +1,219 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Classification Characteristic",
+		"version": "1.0",
+		"description": "In classification, characteristics describe the properties of business objects. The values of a characteristic specify these properties. The following events are available for classification characteristics: \n - Classification characteristic changed \n - Classification characteristic created \n - Classification characteristic released"
+	},
+	"components": {
+		"schemas": {
+			"sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Changed.v1": {
+				"type": "object",
+				"properties": {
+					"ChangeNumber": {
+						"type": "string"
+					},
+					"CharcInternalID": {
+						"type": "string"
+					},
+					"ValidityStartDate": {
+						"type": "string",
+						"format": "date"
+					}
+				}
+			},
+			"sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Created.v1": {
+				"type": "object",
+				"properties": {
+					"ChangeNumber": {
+						"type": "string"
+					},
+					"CharcInternalID": {
+						"type": "string"
+					},
+					"ValidityStartDate": {
+						"type": "string",
+						"format": "date"
+					}
+				}
+			},
+			"sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Deleted.v1": {
+				"type": "object",
+				"properties": {
+					"ChangeNumber": {
+						"type": "string"
+					},
+					"CharcInternalID": {
+						"type": "string"
+					},
+					"ValidityStartDate": {
+						"type": "string",
+						"format": "date"
+					}
+				}
+			},
+			"CloudContext": {
+				"title": "Schema for the CloudEvents context fields.",
+				"description": "This is a schema specification for the context fields as per CloudEvent standards.",
+				"type": "object",
+				"properties": {
+					"specversion": {
+						"description": "The version of the CloudEvents specification which the event uses. This enables the interpretation of the context.",
+						"type": "string"
+					},
+					"type": {
+						"description": "Type of occurrence which has happened. Often this property is used for routing, observability, policy enforcement, etc.",
+						"type": "string",
+						"minLength": 1
+					},
+					"source": {
+						"description": "This describes the event producer.",
+						"type": "string",
+						"format": "uri-reference"
+					},
+					"subject": {
+						"description": "The subject of the event in the context of the event producer (identified by source).",
+						"type": "string",
+						"minLength": 1
+					},
+					"id": {
+						"description": "ID of the event.",
+						"type": "string",
+						"minLength": 1
+					},
+					"time": {
+						"description": "Timestamp of when the occurrence happened. Must adhere to RFC 3339.",
+						"type": "string",
+						"format": "date-time"
+					},
+					"datacontenttype": {
+						"description": "Describe the data encoding format",
+						"type": "string"
+					}
+				},
+				"required": [
+					"id",
+					"specversion",
+					"source",
+					"type"
+				]
+			}
+		}
+	},
+	"paths": {
+		"/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Changed.v1": {
+			"post": {
+				"tags": [
+					"Changed"
+				],
+				"x-payload": "",
+				"description": "This event is raised when a classification characteristic is changed.",
+				"summary": "Classification Characteristic Changed",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"type": "object",
+										"$ref": "#/components/schemas/CloudContext"
+									},
+									{
+										"type": "object",
+										"properties": {
+											"data": {
+												"description": "Data Fields",
+												"$ref": "#/components/schemas/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Changed.v1"
+											}
+										}
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"default": {
+						"description": "Successful"
+					}
+				}
+			}
+		},
+		"/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Created.v1": {
+			"post": {
+				"tags": [
+					"Created"
+				],
+				"x-payload": "",
+				"description": "This event is raised when a classification characteristic is created.",
+				"summary": "Classification Characteristic Created",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"type": "object",
+										"$ref": "#/components/schemas/CloudContext"
+									},
+									{
+										"type": "object",
+										"properties": {
+											"data": {
+												"description": "Data Fields",
+												"$ref": "#/components/schemas/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Created.v1"
+											}
+										}
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"default": {
+						"description": "Successful"
+					}
+				}
+			}
+		},
+		"/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Deleted.v1": {
+			"post": {
+				"tags": [
+					"Deleted"
+				],
+				"x-payload": "",
+				"description": "This event is raised when a classification characteristic is deleted.",
+				"summary": "Classification Characteristic Deleted",
+				"requestBody": {
+					"content": {
+						"application/json": {
+							"schema": {
+								"allOf": [
+									{
+										"type": "object",
+										"$ref": "#/components/schemas/CloudContext"
+									},
+									{
+										"type": "object",
+										"properties": {
+											"data": {
+												"description": "Data Fields",
+												"$ref": "#/components/schemas/sap.s4.beh.classificationcharacteristic.v1.ClassificationCharacteristic.Deleted.v1"
+											}
+										}
+									}
+								]
+							}
+						}
+					}
+				},
+				"responses": {
+					"default": {
+						"description": "Successful"
+					}
+				}
+			}
+		}
+	}
+}
